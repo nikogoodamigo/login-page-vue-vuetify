@@ -11,10 +11,7 @@
             <v-text-field v-model="password" :rules="rule2" label="Password" required></v-text-field>
           </v-row>
           <v-row class="user-input">
-            <v-text-field v-model="token" :rules="rule3" label="Token" required></v-text-field>
-          </v-row>
-          <v-row class="user-input">
-            <v-btn type="submit" size="large" variant="elevated"> SUBMIT </v-btn>
+            <v-btn  size="large" variant="elevated" type="submit"> SUBMIT </v-btn>
           </v-row>
         </v-form>
       </v-sheet>
@@ -37,15 +34,7 @@
             if (value) return true
             return 'You must enter a password.'
         },
-      ],
-      token: '',
-      rule3: [
-        value => {
-            if (value) return true
-            return 'You must enter a token.'
-        },
-      ]
-      
+      ]      
     }),
   }
 </script>
