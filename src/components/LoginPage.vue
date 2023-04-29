@@ -5,22 +5,23 @@
         </v-row>
         <v-form>
           <v-row class="user-input">
-            <v-text-field v-model="userName" :rules="rule1" label="Username"></v-text-field>
+            <v-text-field v-model="username" :rules="rule1" label="Username"></v-text-field>
           </v-row>
           <v-row class="user-input">
             <v-text-field v-model="password" :rules="rule2" label="Password" required></v-text-field>
           </v-row>
           <v-row class="user-input">
-            <v-btn  size="large" variant="elevated" type="submit"> SUBMIT </v-btn>
+            <v-btn  size="large" variant="elevated" type="submit" @click="goToPanel()"> SUBMIT </v-btn>
           </v-row>
         </v-form>
       </v-sheet>
 </template>
 
 <script>
+
   export default {
     data: () => ({
-      userName: '',
+      username: '',
       rule1: [
         value => {
           if (value) return true
@@ -34,7 +35,18 @@
             if (value) return true
             return 'You must enter a password.'
         },
-      ]      
+      ],
+      methods: {
+        loginAction(){
+          this.$store.dispatch('getToken', {
+            username: this.username,
+            password: this.password,
+          })
+          .then(() => {
+            this.$router.push('loggedIn')
+          })
+        }
+      }      
     }),
   }
 </script>
