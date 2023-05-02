@@ -16,6 +16,7 @@
 
 <script>
 export default {
+  name: 'DataBlock',
   data() {
     return {
       names: ['John', 'Mary', 'Bob', 'Alice', 'David', 'Sarah', 'Tom', 'Emily', 'Jessica', 'Daniel']

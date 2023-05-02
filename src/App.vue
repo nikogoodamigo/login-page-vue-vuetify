@@ -1,27 +1,29 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <v-main>
-      <!-- <LoginPage /> -->
-      <AdminPanel />
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-// import LoginPage from './components/LoginPage.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import LoginPage from './components/LoginPage.vue';
 import AdminPanel from './components/AdminPanel.vue';
 
+export const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', component: LoginPage },
+    { path: '/adminpanel', component: AdminPanel}
+  ]
+})
+
 export default {
-  name: 'App',
-
-  components: {
-    // LoginPage,
-    AdminPanel
-
-},
-
-  data: () => ({
+    name: 'App',
+    router,
+    data: () => ({
     //
-  }),
+    }),
 }
 </script>
