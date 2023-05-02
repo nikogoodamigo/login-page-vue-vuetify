@@ -11,7 +11,7 @@
             <v-text-field v-model="password" :rules="rule2" label="Password" required></v-text-field>
           </v-row>
           <v-row class="user-input">
-            <v-btn  size="large" variant="elevated" type="submit" @click="goToPanel()"> SUBMIT </v-btn>
+            <v-btn  size="large" variant="elevated" type="submit"> SUBMIT </v-btn>
           </v-row>
         </v-form>
       </v-sheet>
