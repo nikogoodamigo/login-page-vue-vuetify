@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <LoginPage />
+      <!-- <LoginPage /> -->
       <AdminPanel />
     </v-main>
   </v-app>

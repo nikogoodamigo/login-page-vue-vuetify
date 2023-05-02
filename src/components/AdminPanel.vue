@@ -2,7 +2,7 @@
   <v-card class="admin-panel-form">
     <AdminToolbar />
     <v-row>
-      <v-col class="data-block">
+      <v-col class="data-block" id="block-1">
         <v-card class="block-headline">
           <v-row>
             <v-col>
@@ -12,7 +12,7 @@
             </v-col>
             <v-col>
               <div class="d-flex justify-end">
-                <v-btn variant="elevated" type="submit"> Zobacz wszystkie </v-btn>
+                <v-btn variant="elevated" type="submit"> Więcej </v-btn>
               </div>
             </v-col>
           </v-row>
@@ -43,47 +43,40 @@
             </v-col>
             <v-col>
               <div class="d-flex justify-end">
-                <v-btn variant="elevated" type="submit"> Zobacz wszystkie </v-btn>
+                <v-btn variant="elevated" type="submit"> Więcej </v-btn>
               </div>
             </v-col>
           </v-row>
           <div class="block-data">
-            <v-virtual-scroll :items="items" height="400">
-            <template v-slot:default="{ item, index }">
-              <div
-                :class="[
-                  index % 2 === 0 ? 'py-2' : index % 5 == 0 ? 'py-8' : 'py-4',
-                  index % 2 === 0 ? 'bg-grey-lighten-2' : index % 5 === 0 ? 'bg-grey-darken-2' : '',
-                  'px-2'
-                ]"
-              >
-                Osoba oczekująca {{ item }}
-              </div>
-            </template>
-          </v-virtual-scroll> 
-          </div>          
+            <DataBlock />
+          </div>        
         </v-card>
       </v-col>
     </v-row>
-
   </v-card>
 </template>
 
 <script>
+
 import AdminToolbar from './AdminToolbar.vue';
+import DataBlock from './DataBlock.vue';
+
   export default {
     components:{
-      AdminToolbar
+      AdminToolbar,
+      DataBlock
     },
     computed: {
       items () {
         return Array.from({ length: 10 }, (k, v) => v + 1)
       },
     },
+
   }
 </script>
 
 <style scoped>
+
 .admin-panel-form{
   color: grey-lighten-4;
   height:100%;
