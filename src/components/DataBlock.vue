@@ -8,7 +8,7 @@
           'px-2'
         ]"
       >
-        Oczekujący/a {{ item }}
+       {{ title + ' ' + item }}
       </div>
     </template>
   </v-virtual-scroll>
@@ -19,6 +19,7 @@ export default {
   name: 'DataBlock',
   data() {
     return {
+      title: 'Oczekujący/a',
       names: ['John', 'Mary', 'Bob', 'Alice', 'David', 'Sarah', 'Tom', 'Emily', 'Jessica', 'Daniel']
     }
   }
