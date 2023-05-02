@@ -1,38 +1,106 @@
 <template>
-  <router-view></router-view>
-  <v-card
-    color="grey-lighten-4"
-    flat
-    height="200px"
-    rounded="0"
-  >
-    <v-toolbar density="compact">
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  <v-card class="admin-panel-form">
+    <AdminToolbar />
+    <v-row>
+      <v-col class="data-block">
+        <v-card class="block-headline">
+          <v-row>
+            <v-col>
+              <div>
+                <h2>Grupy</h2>
+              </div>
+            </v-col>
+            <v-col>
+              <div class="d-flex justify-end">
+                <v-btn variant="elevated" type="submit"> Zobacz wszystkie </v-btn>
+              </div>
+            </v-col>
+          </v-row>
+          <div class="block-data">
+            <v-virtual-scroll :items="items" height="400">
+              <template v-slot:default="{ item, index }">
+                <div
+                  :class="[
+                    index % 2 === 0 ? 'py-2' : index % 5 == 0 ? 'py-8' : 'py-4',
+                    index % 2 === 0 ? 'bg-grey-lighten-2' : index % 5 === 0 ? 'bg-grey-darken-2' : '',
+                    'px-2'
+                  ]"
+                >
+                  Grupa {{ item }}
+                </div>
+              </template>
+            </v-virtual-scroll>
+          </div>
+        </v-card>
+      </v-col>
+      <v-col class="data-block">
+        <v-card class="block-headline">
+          <v-row>
+            <v-col>
+              <div>
+                <h2>Oczekujące</h2>
+              </div>
+            </v-col>
+            <v-col>
+              <div class="d-flex justify-end">
+                <v-btn variant="elevated" type="submit"> Zobacz wszystkie </v-btn>
+              </div>
+            </v-col>
+          </v-row>
+          <div class="block-data">
+            <v-virtual-scroll :items="items" height="400">
+            <template v-slot:default="{ item, index }">
+              <div
+                :class="[
+                  index % 2 === 0 ? 'py-2' : index % 5 == 0 ? 'py-8' : 'py-4',
+                  index % 2 === 0 ? 'bg-grey-lighten-2' : index % 5 === 0 ? 'bg-grey-darken-2' : '',
+                  'px-2'
+                ]"
+              >
+                Osoba oczekująca {{ item }}
+              </div>
+            </template>
+          </v-virtual-scroll> 
+          </div>          
+        </v-card>
+      </v-col>
+    </v-row>
 
-      <v-toolbar-title>Title</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-    </v-toolbar>
   </v-card>
 </template>
 
 <script>
-
-export default {
-data: () => ({
-  //
-}),
-}
+import AdminToolbar from './AdminToolbar.vue';
+  export default {
+    components:{
+      AdminToolbar
+    },
+    computed: {
+      items () {
+        return Array.from({ length: 10 }, (k, v) => v + 1)
+      },
+    },
+  }
 </script>
+
+<style scoped>
+.admin-panel-form{
+  color: grey-lighten-4;
+  height:100%;
+}
+
+.data-block{
+  margin-top: 40px;
+  margin-left: 35px;
+  margin-right: 15px;
+}
+
+.block-headline{
+  padding: 20px;
+}
+
+.block-data{
+  padding-top: 20px;
+}
+
+</style>
