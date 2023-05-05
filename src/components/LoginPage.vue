@@ -1,15 +1,8 @@
 <template>
-      <BasicToolbar />
-      <v-row>
-        <v-col>
-          <LoginForm />
-        </v-col>
-        <v-col>
-          <v-card>
-
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-card>
+        <BasicToolbar />
+        <LoginForm />
+      </v-card>
 
 </template>
 
