@@ -1,21 +1,17 @@
 <template>
-    <v-toolbar density="compact">
-      <v-toolbar-title>CMA</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn>Grupy</v-btn>
-      <v-btn>Oczekujące</v-btn>
-      <v-btn @click="logoutAction">Wyloguj</v-btn>
-    </v-toolbar>
+  <v-toolbar class="toolbar">
+    <v-toolbar-title>Website Name</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-btn>Page 1</v-btn>
+    <v-btn>Page 2</v-btn>
+    <v-btn>Page 3</v-btn>
+  </v-toolbar>
 </template>
 
-<script>
-import { router } from '@/router';
+<style scoped>
 
-export default { 
-  methods: {
-    logoutAction (){
-      router.push('/')
-    }
-  }
-};
-</script>
+.toolbar{
+  height: 7.25%;
+}
+
+</style>

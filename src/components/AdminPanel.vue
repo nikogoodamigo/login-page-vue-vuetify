@@ -1,6 +1,6 @@
 <template>
+  <AdminToolbar />
   <v-card class="admin-panel-form">
-    <AdminToolbar />
     <v-row>
       <v-col class="data-block" id="block-1">
         <v-card class="block-headline">
@@ -54,18 +54,21 @@
       </v-col>
     </v-row>
   </v-card>
+  <BasicFooter />
 </template>
 
 <script>
 
 import AdminToolbar from './AdminToolbar.vue';
 import DataBlock from './DataBlock.vue';
+import BasicFooter from './BasicFooter.vue';
 import {returnToken} from '@/functions/user-login'
 
   export default {
     components:{
       AdminToolbar,
-      DataBlock
+      DataBlock,
+      BasicFooter
     },
     computed: {
       items () {
@@ -83,8 +86,7 @@ import {returnToken} from '@/functions/user-login'
 <style scoped>
 
 .admin-panel-form{
-  color: grey-lighten-4;
-  height:100%;
+  height:85%;
 }
 
 .data-block{
