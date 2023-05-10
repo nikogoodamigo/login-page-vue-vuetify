@@ -8,6 +8,6 @@ export const router = createRouter({
   routes: [
     { path: '/', component: LoginPage },
     { path: '/adminpanel', component: AdminPanel},
-    { path: '/test', component: DataRetreive}
+    { path: '/items', component: DataRetreive}
   ]
 });
