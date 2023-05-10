@@ -4,20 +4,24 @@ import {router} from '../router';
 var token;
 
 export function loginAction(username, password){
-    if (username == 'niko' && password == '123'){
-      axios.post('http://localhost:3001/api/createToken')
+
+      axios.post('http://localhost:3001/api/createToken', {
+        username,
+        password
+      })
         .then(response => {
-          this.token = response.data.token;
-          token = this.token;
-          router.push('/adminpanel');
+          if(response.data.responseCode == 401){
+            window.alert(response.data.responseMessage);
+          }
+          else{
+            this.token = response.data.token;
+            token = this.token;
+            router.push('/adminpanel');
+          }
         })
         .catch(error => {
           console.error(error);
         });
-    }
-    else {
-      window.alert('Wrong credentials');
-    }
   }
 
 export function returnToken(){
