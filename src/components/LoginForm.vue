@@ -3,7 +3,7 @@
         <v-row>
             <h1 class="text-center">Log In</h1>
         </v-row>
-        <v-form>
+        <v-form @submit.prevent="loginAction(this.username, this.password)">
           <v-row class="user-input">
             <v-text-field v-model="username" :rules="rule1" label="Username"></v-text-field>
           </v-row>
@@ -11,14 +11,14 @@
             <v-text-field v-model="password" :rules="rule2" label="Password" required></v-text-field>
           </v-row>
           <v-row class="user-input">
-            <v-btn  size="large" variant="elevated" type="submit" @click="loginAction(username, password)" > SUBMIT </v-btn>
+            <v-btn  size="large" variant="elevated" type="submit"> SUBMIT </v-btn>
           </v-row>
         </v-form>
       </v-sheet>
 </template>
 
 <script>
-import { router } from '@/router';
+import {loginAction} from '@/functions/user-login';
 
 
 export default{
@@ -37,12 +37,7 @@ export default{
       ],   
     }),
     methods: {
-        loginAction(){
-          if(this.username == 'nikogoodamigo' && this.password == 'qwerty123!'){
-            router.push('/adminpanel')
-          }
-          else {window.alert('Entered credentials are incorrect!.')}
-        }
+      loginAction
       }   
 }
 

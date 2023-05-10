@@ -5,8 +5,6 @@ import { loadFonts } from './plugins/webfontloader';
 import VueRouter from 'vue-router';
 import {router} from './router';
 
-
-
 loadFonts()
 
 createApp(App)
@@ -14,4 +12,5 @@ createApp(App)
   .use(VueRouter)
   .use(vuetify)
   .mount('#app')
+
 

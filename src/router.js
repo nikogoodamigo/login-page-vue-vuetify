@@ -6,6 +6,5 @@ export const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: LoginPage },
-    { path: '/adminpanel', component: AdminPanel}
-  ]
+    { path: '/adminpanel', component: AdminPanel},  ]
 });
