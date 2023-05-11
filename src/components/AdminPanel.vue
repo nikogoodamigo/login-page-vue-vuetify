@@ -62,7 +62,7 @@
 import AdminToolbar from './AdminToolbar.vue';
 import DataBlock from './DataBlock.vue';
 import BasicFooter from './BasicFooter.vue';
-import {returnToken} from '@/functions/user-login'
+
 
   export default {
     components:{
@@ -74,9 +74,6 @@ import {returnToken} from '@/functions/user-login'
       items () {
         return Array.from({ length: 10 }, (k, v) => v + 1)
       },
-    },
-    mounted() {
-      returnToken()
     },
 
 

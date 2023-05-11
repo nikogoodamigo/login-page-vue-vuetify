@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { createStore } from 'vuex';
 import {router} from '../router';
 
 var token;
@@ -17,6 +18,7 @@ export function loginAction(username, password){
             this.token = response.data.token;
             token = this.token;
             router.push('/adminpanel');
+            console.log(token);
           }
         })
         .catch(error => {
@@ -24,8 +26,12 @@ export function loginAction(username, password){
         });
   }
 
-export function returnToken(){
-  console.log(token);
-  return token;
-}
+
+export const tokenStore = createStore({
+  state() {
+      return {
+          code: 1
+      };
+  }
+});
 
