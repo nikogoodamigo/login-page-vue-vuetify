@@ -5,10 +5,10 @@
         </v-row>
         <v-form @submit.prevent="loginAction(this.username, this.password)">
           <v-row class="user-input">
-            <v-text-field v-model="username" :rules="rule1" label="Username"></v-text-field>
+            <v-text-field v-model="username" :rules="rule1" label="Username" required></v-text-field>
           </v-row>
           <v-row class="user-input">
-            <v-text-field v-model="password" :rules="rule2" label="Password" required></v-text-field>
+            <v-text-field v-model="password" :rules="rule2" label="Password" type="password" required></v-text-field>
           </v-row>
           <v-row class="user-input">
             <v-btn  size="large" variant="elevated" type="submit"> SUBMIT </v-btn>

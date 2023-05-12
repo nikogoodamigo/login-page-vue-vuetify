@@ -16,16 +16,16 @@ export function loginAction(username, password){
           else{
             this.token = response.data.token;
             token = this.token;
-            router.push('/adminpanel');
+            this.$store.state.token = token;
+            setTimeout(() => {
+              console.log(token);
+              router.push('/adminpanel');
+            }, 1000);
+            
           }
         })
         .catch(error => {
           console.error(error);
         });
   }
-
-export function returnToken(){
-  console.log(token);
-  return token;
-}
 

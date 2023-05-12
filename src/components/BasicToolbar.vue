@@ -1,9 +1,9 @@
 <template>
-    <v-toolbar density="compact">
-      <v-toolbar-title>Crypto Knowledge</v-toolbar-title>
+    <v-toolbar>
+      <v-toolbar-title>Website Name</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn>Kryptowaluty</v-btn>
-      <v-btn>Wiadomości</v-btn>
-      <v-btn>Zaloguj</v-btn>
+      <v-btn>Page 1</v-btn>
+      <v-btn>Page 2</v-btn>
+      <v-btn>Page 3</v-btn>
     </v-toolbar>
 </template>
