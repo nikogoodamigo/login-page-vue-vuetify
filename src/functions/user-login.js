@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { createStore } from 'vuex';
 import {router} from '../router';
 
 var token;
@@ -17,21 +16,16 @@ export function loginAction(username, password){
           else{
             this.token = response.data.token;
             token = this.token;
-            router.push('/adminpanel');
-            console.log(token);
+            this.$store.state.token = token;
+            setTimeout(() => {
+              console.log(token);
+              router.push('/adminpanel');
+            }, 1000);
+            
           }
         })
         .catch(error => {
           console.error(error);
         });
   }
-
-
-export const tokenStore = createStore({
-  state() {
-      return {
-          code: 1
-      };
-  }
-});
 

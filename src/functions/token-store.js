@@ -1,9 +1,9 @@
 import { createStore } from "vuex";
 
-export const store = createStore({
+export const tokenStore = createStore({
     state() {
         return {
-            counter: 0
+            token: ''
         };
     }
 });
