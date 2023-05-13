@@ -1,7 +1,11 @@
 import axios from 'axios';
 import {router} from '../router';
 
-var token;
+
+var token ={
+  tokenCode: Number,
+  expiresAt: Date
+};
 
 export function loginAction(username, password){
 
@@ -14,11 +18,13 @@ export function loginAction(username, password){
             window.alert(response.data.responseMessage);
           }
           else{
-            this.token = response.data.token;
-            token = this.token;
-            this.$store.state.token = token;
+            this.tokenCode = response.data.token;
+            this.expiresAt = response.data.expires_at;
+            token.expiresAt = this.expiresAt;
+            token.tokenCode = this.token;
+            this.$store.state.token = token.tokenCode;
             setTimeout(() => {
-              console.log(token);
+              console.log('token is active until: ' + token.expiresAt);
               router.push('/adminpanel');
             }, 1000);
             
@@ -28,4 +34,12 @@ export function loginAction(username, password){
           console.error(error);
         });
   }
+
+export function isTokenActiv(){
+  const currentTime = new Date();
+
+  if(currentTime > token.expiresAt){
+    router.push('/');
+  }
+}
 
